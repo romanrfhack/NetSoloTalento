@@ -28,11 +28,8 @@ public class TiendaController : ControllerBase{
     public async Task<ActionResult<IEnumerable<TiendaResponseDto>>> GetTiendas()
     {
         var tienda = await _repository.GetAllTiendas();
-
         //Deberia estar en otra capa        
-        var tiendas = _mapper.Map<IEnumerable<TiendaResponseDto>>(tienda);
-
-        
+        var tiendas = _mapper.Map<IEnumerable<TiendaResponseDto>>(tienda);        
         return Ok(tiendas);
     }    
 
