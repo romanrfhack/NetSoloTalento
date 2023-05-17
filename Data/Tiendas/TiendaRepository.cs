@@ -1,7 +1,7 @@
 using System.Net;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-//using NetSoloTalento.Middleware;
+using NetSoloTalento.Middleware;
 using NetSoloTalento.Models;
 using NetSoloTalento.Token;
 

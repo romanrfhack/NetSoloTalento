@@ -1,4 +1,3 @@
-using NetSoloTalento.Models;
 namespace NetSoloTalento.Dtos.TiendaDtos;
 
 public class TiendaResponseDto {
