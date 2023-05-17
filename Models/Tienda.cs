@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Identity;
 
 namespace NetSoloTalento.Models;
 
-public class Tienda : IdentityUser {
+public class Tienda{
     [Key]
     [Required]
     public int Id { get; set; }

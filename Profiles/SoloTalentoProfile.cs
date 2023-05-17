@@ -3,7 +3,7 @@ using NetSoloTalento.Dtos.TiendaDtos;
 using NetSoloTalento.Dtos.ArticuloDtos;
 using NetSoloTalento.Models;
 
-namespace NetKubernetes.Profiles;
+namespace NetSoloTalento.Profiles;
 
 public class SoloTalentoProfile : Profile {
 
