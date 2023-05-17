@@ -57,7 +57,7 @@ builder.Services.AddScoped<IJwtGenerador, JwtGenerador>();
 builder.Services.AddScoped<IUsuarioSesion, UsuarioSesion>();
 builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 
-var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("SoloTalento Test"));
+var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("SoloTalentoE8A30B7D34597CCE7F81F2A5489275CA9A5F80A1741B4E7C74E8C4854CF6F7A4C"));
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer( opt => {
                     opt.TokenValidationParameters = new TokenValidationParameters 
@@ -90,5 +90,20 @@ app.UseCors("corsapp");
 app.UseAuthorization();
 
 app.MapControllers();
+
+using (var ambiente = app.Services.CreateScope())
+{
+    var services = ambiente.ServiceProvider;
+    try {
+        var userManager = services.GetRequiredService<UserManager<Usuario>>();
+        var context = services.GetRequiredService<AppDbContext>();
+        await context.Database.MigrateAsync();
+        await LoadDatabase.InsertarData(context, userManager);
+
+    }catch(Exception e) {
+        var logging = services.GetRequiredService<ILogger<Program>>();
+        logging.LogError(e, "Ocurrio un error en la migracion");
+    }
+}
 
 app.Run();

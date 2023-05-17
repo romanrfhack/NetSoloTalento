@@ -6,7 +6,7 @@ using NetSoloTalento.Data.Tiendas;
 using NetSoloTalento.Middleware;
 using NetSoloTalento.Models;
 
-namespace NetKubernetes.Controllers;
+namespace NetSoloTalento.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
